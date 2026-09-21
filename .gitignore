@@ -1,0 +1,32 @@
+# --- secrets: никогда не коммитить ---
+.env
+.env.*.local
+
+# --- node ---
+node_modules/
+
+# --- playwright ---
+test-results/
+playwright-report/
+blob-report/
+playwright/.auth/
+
+# --- graphify (локальное only) ---
+graphify-out/cost.json
+# graphify-out/cache/  # раскомментируй, чтобы не тащить кэш в репо
+
+# --- python / сканеры ---
+__pycache__/
+*.pyc
+.venv/
+audit.html
+research-report.md
+before.json
+
+# --- tasks: папка едет в репо, содержимое локальное ---
+tasks/*
+!tasks/.gitkeep
+
+# --- windows ---
+Thumbs.db
+Desktop.ini
