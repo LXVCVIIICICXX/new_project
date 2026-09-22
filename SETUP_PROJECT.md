@@ -1,6 +1,6 @@
 # SETUP_PROJECT — новый проект за ~15 минут
 
-Этот репозиторий — шаблон. Для нового проекта: выполни шаги 0–5,
+Этот репозиторий — шаблон. Для нового проекта: выполни шаги 0–6,
 файлы-шаблоны (`.gitignore`, `.env.example`, `playwright.config.ts`,
 `tests/smoke.spec.ts`, `tasks/`, `security-audit/`,
 `SKILL_SECURITY_PIPELINE.md`) скопируй отсюда как есть.
@@ -186,7 +186,20 @@ skill-scanner scan quarantine\candidate --policy strict --use-behavioral --forma
 
 ---
 
-## 6. Чек-лист «новый проект готов»
+## 6. Git — коммиты (Conventional Commits)
+
+- Формат: `<тип>(скоуп): <что сделано>`, например:
+  `docs: add optional kanban-board reference with port clarification`
+  или со скоупом: `docs(setup): add optional kanban-board with port prompt`.
+- Тип всегда строчными на английском: `feat`, `fix`, `docs`, `test`,
+  `refactor`, `chore` (не `Docs:`, `Fix:`).
+- Дальше — глагол в повелительном наклонении на английском, без точки
+  в конце, до ~72 символов. Один коммит = одно логическое изменение.
+- Коммит и пуш — только после твоего «ОК».
+
+---
+
+## 7. Чек-лист «новый проект готов»
 
 - [ ] `npm test` → `1 passed`
 - [ ] `.env` заполнен, в git его нет (`git status` чист от секретов)
