@@ -117,6 +117,28 @@ XXXXXX_<slug>_<статус>.md        # пример: A4F9K2_setup-project_🛠
 ## История
 ```
 
+### Канбан-доска (опционально — только после твоего «ОК»)
+
+- По дефолту **не ставится**. Агент при установке нового проекта обязан
+  уточнить два вопроса: (1) нужна ли канбан-доска вообще, (2) какой порт
+  localhost использовать (дефолт `5000`, если занят — спросить другой).
+- Если ответил «да» — готовую локальную доску взять отсюда:
+  https://github.com/LXVCVIIICICXX/kanban-board
+  (`tracker/` — Node.js-сервер без сторонних зависимостей; детали — `SETUP.md`
+  в том репо).
+- Установка (только после «ОК»):
+  1. Скопировать `tracker/` в проект, открыть `tracker/config.js` и задать
+     `PROJECT_NAME` и `TRACKER_PORT` (либо через env `PROJECT_NAME` /
+     `TRACKER_PORT` — env перекрывает конфиг).
+  2. Запуск: `cd tracker; node server.cjs`, затем открыть
+     `http://localhost:<выбранный-порт>/` (по дефолту `http://localhost:5000`).
+- Внимание: доска из коробки работает с раскладкой
+  `.agents/tasks/<Backlog|To do|Done>/*.md` и двигает файлы между папками
+  при drag-and-drop (синхронизация через SSE), а в этом шаблоне задачи
+  лежат плоско в `tasks/` со статусом в имени файла
+  (`XXXXXX_<slug>_<статус>.md`) — при подключении доски потребуется
+  адаптация раскладки под один из форматов.
+
 ---
 
 ## 4. Graphify — цеплять по дефолту
@@ -170,5 +192,6 @@ skill-scanner scan quarantine\candidate --policy strict --use-behavioral --forma
 - [ ] `.env` заполнен, в git его нет (`git status` чист от секретов)
 - [ ] `.env.example` обновлён под все переменные
 - [ ] `tasks/` на месте
+- [ ] Канбан-доска: уточнено, нужна ли (по дефолту нет); если «ОК» — порт localhost согласован, `tracker/config.js` (`PROJECT_NAME`, `TRACKER_PORT`) настроен
 - [ ] `graphify install --platform opencode` выполнен, `.opencode/` закоммичен
 - [ ] `security-audit/` + `SKILL_SECURITY_PIPELINE.md` скопированы
